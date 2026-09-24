@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#09090f"><title>Universal MP4 Player</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="app-shell">
+<aside class="sidebar">
+  <div class="brand"><div class="brand-mark">U</div><div><b>Universal</b><span>MP4 Player</span></div></div>
+  <nav>
+    <button class="nav-item active" data-view="home">⌂ <span>Home</span></button>
+    <button class="nav-item" data-view="videos">▣ <span>My Videos</span></button>
+    <button class="nav-item" data-view="favorites">♡ <span>Favorites</span></button>
+  </nav>
+  <div class="sidebar-bottom"><button class="ghost-btn" id="addVideoSide">＋ Add videos</button></div>
+</aside>
+<main class="main">
+<header class="topbar"><div class="mobile-brand"><div class="brand-mark">U</div><b>Universal</b></div><label class="search">⌕<input id="search" placeholder="Search your videos..."></label><button class="primary-btn" id="addVideo">＋ Add Videos</button></header>
+<section class="view active-view" id="home">
+  <div class="hero"><div><div class="eyebrow">YOUR PERSONAL VIDEO SPACE</div><h1>Watch without limits.</h1><p>A beautiful, lightweight MP4 player built around your videos, your library and your screen.</p><button class="primary-btn" id="heroAdd">Choose videos</button></div><div class="hero-screen"><div class="screen-glow"></div><div class="screen-inner"><span>▶</span></div></div></div>
+  <div class="section-head"><div><h2>Recently added</h2><p>Your video library</p></div></div><div id="recent" class="video-grid"></div>
+</section>
+<section class="view" id="videos"><div class="section-head"><div><h2>My Videos</h2><p>Everything you've added</p></div></div><div id="library" class="video-list"></div></section>
+<section class="view" id="favorites"><div class="section-head"><div><h2>Favorites</h2><p>Your saved videos</p></div></div><div id="favoriteList" class="video-grid"></div></section>
+</main></div>
+<div class="player" id="player" hidden>
+  <div class="now-playing"><div class="mini-thumb" id="miniThumb">▶</div><div class="now-text"><strong id="nowTitle">Nothing playing</strong><span id="nowMeta">Select a video</span></div></div>
+  <div class="controls"><div class="control-row"><button class="icon-btn" id="prev">↶</button><button class="play-btn" id="play">▶</button><button class="icon-btn" id="next">↷</button></div><div class="progress-row"><span id="current">0:00</span><input id="progress" type="range" min="0" max="100" value="0"><span id="duration">0:00</span></div></div>
+  <div class="volume"><span>🔊</span><input id="volume" type="range" min="0" max="1" step=".01" value="1"><button class="icon-btn" id="fullscreen">⛶</button></div>
+</div>
+<div class="video-modal" id="modal" hidden><div class="modal-card"><button class="close" id="close">×</button><div class="video-stage"><video id="video" playsinline preload="metadata"></video><div class="stage-controls"><button id="modalPlay">▶</button><button id="back10">↶ 10</button><button id="forward10">10 ↷</button><button id="modalFull">⛶</button></div></div><h2 id="modalTitle">Video</h2><p id="modalMeta"></p></div></div>
+<input id="fileInput" type="file" accept="video/mp4,video/webm,video/ogg,.mp4,.webm,.ogv" multiple hidden>
+<script src="app.js"></script>
+</body></html>
